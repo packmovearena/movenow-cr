@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+    <div class="refresh" (click)="loadUserDetails()">
+      <ion-icon name="md-refresh-circle"></ion-icon>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="userList">
+  <ion-card *ngFor="let user of userList" (click)="openUser(user)">
+    <ion-card-header *ngIf="user.name">
+      {{ user.name }}
+    </ion-card-header>
+    <ion-card-content>
+      {{user.mobile}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

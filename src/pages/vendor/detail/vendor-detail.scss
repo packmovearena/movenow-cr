@@ -1,0 +1,26 @@
+page-vendor-detail {
+  .edit {
+    right: 2%;
+    top: 22%;
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .delete {
+    right: 16%;
+    top: 22%;
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+  }
+
+  .red {
+    border-bottom: 1px solid red;
+  }
+
+  .blue {
+    border-bottom: 1px solid lightgray;
+  }
+}

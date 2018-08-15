@@ -1,33 +1,77 @@
+import {NgModule, ErrorHandler, enableProdMode} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-
+import {
+  AboutPage, CommonSvc, ContactPage, VendorPage, HomePage,
+  Loader, LoginPage, Logo, Profile, Message, OtpPage, RegisterPage, SearchPage,
+  Server, Settings, UserList, UserProfile, UtilSvc, UserSearchPage,
+  VendorDetailPage, VendorSvc
+} from './import';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {HttpClientModule} from "@angular/common/http";
+import {IonicStorageModule} from "@ionic/storage";
+
+enableProdMode();
 
 @NgModule({
   declarations: [
     MyApp,
+    AboutPage,
+    ContactPage,
+    VendorPage,
     HomePage,
-    ListPage
+    LoginPage,
+    Loader,
+    Logo,
+    Message,
+    OtpPage,
+    Profile,
+    RegisterPage,
+    SearchPage,
+    Settings,
+    UserList,
+    UserProfile,
+    UserSearchPage,
+    VendorDetailPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    AboutPage,
+    ContactPage,
+    VendorPage,
     HomePage,
-    ListPage
+    Loader,
+    LoginPage,
+    Logo,
+    Message,
+    OtpPage,
+    Profile,
+    RegisterPage,
+    SearchPage,
+    Settings,
+    UserList,
+    UserProfile,
+    UserSearchPage,
+    VendorDetailPage
   ],
   providers: [
+    CommonSvc,
+    HTTP,
+    Server,
     StatusBar,
     SplashScreen,
+    UtilSvc,
+    VendorSvc,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

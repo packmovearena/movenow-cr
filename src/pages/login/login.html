@@ -1,0 +1,33 @@
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-row>
+      <ion-col offset-md-5 offset-3>
+        <div class="logo">
+          <img src="assets/imgs/logo-vendor.png">
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="inputs">
+      <ion-col offset-1 col-10>
+        <ion-item>
+          <ion-input id="mobileNumber"
+                     type="tel"
+                     [(ngModel)]="mobileNumber"
+                     placeholder="Enter 10 Digit Mobile Number"
+                     (ngModelChange)="dataChanged()"
+                     maxlength="10"
+                     required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset-1>
+        <span *ngIf="errorMsg" class="error">{{ errorMsg }}</span>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <div padding>
+    <button ion-button full col-10 offset-1 color="mv-btn" (click)="signIn()" [disabled]="validate()">Sign In</button>
+  </div>
+</ion-content>

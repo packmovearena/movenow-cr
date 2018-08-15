@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-5>
+      <ion-input [(ngModel)]="filter.name" placeholder="Company Name"></ion-input>
+    </ion-col>
+    <ion-col col-5>
+      <ion-input [(ngModel)]="filter.area" placeholder="Area"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col offset-1 col-10>
+      <button color="mv-btn" ion-button full (click)="search()">Find Vendor</button>
+    </ion-col>
+  </ion-row>
+  <ion-card *ngFor="let vendor of vendorList" (click)="openVendor(vendor)">
+    <ion-card-header *ngIf="vendor.name">
+      {{ vendor.name }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          Area : {{vendor.area}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Created Date: {{ getDate(vendor.createdDate) }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Updated Date: {{ getDate(vendor.updatedDate) }}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

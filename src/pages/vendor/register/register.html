@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 text-center>Register Vendor</h3>
+  <ion-row *ngFor="let input of inputList">
+    <ion-col offset-1 col-10>
+      <ion-item>
+        <ion-input [(ngModel)]="vendor[input.ngModel]" *ngIf="input.type === 'input'" (ngModelChange)="change = true;" [ngClass]="{ red : required(input) }" placeholder="{{input.label}}" type="{{input.dataType}}"></ion-input>
+        <ion-textarea [(ngModel)]="vendor[input.ngModel]" *ngIf="input.type === 'textarea'" (ngModelChange)="change = true;" [ngClass]="{ red : required(input) }" placeholder="{{input.label}}"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col offset-1 col-10>
+      <button color="mv-btn" ion-button full (click)="disableSubmit() || submit()" [disabled]="disableSubmit()">Submit</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      {{ user.name }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row *ngIf="user.mobile">
+        <ion-col>
+          Mobile: {{user.mobile}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="user.email">
+        <ion-col>
+          Email: {{user.email}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="user.source">
+        <ion-col>
+          Source: {{user.source}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="user.destination">
+        <ion-col>
+          Destination: {{user.destination}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="user.movingDate">
+        <ion-col>
+          Moving Date: {{user.movingDate}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="user.message">
+        <ion-col>
+          Message: {{user.message}}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

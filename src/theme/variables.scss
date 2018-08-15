@@ -38,7 +38,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222 ,
+  mv-btn:     #6f6d6d
 );
 
 
@@ -86,3 +87,7 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$text-input-ios-show-focus-highlight: false;
+$text-input-md-show-focus-highlight: false;
+$text-input-wp-show-focus-highlight: false;

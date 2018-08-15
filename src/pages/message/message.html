@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="success === true">
+    <ion-card-content>
+      <ion-icon name="ios-checkmark-circle-outline" color="secondary"></ion-icon>
+      <div>
+        {{message}}
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="success === false">
+    <ion-card-content>
+      <ion-icon name="ios-close-circle-outline" color="danger"></ion-icon>
+      <div>
+        {{message}}
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

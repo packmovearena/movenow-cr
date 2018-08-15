@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Verify OTP</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col class="content">
+      Sit back and Relax! while we verify your mobile number {{ mobileNumber }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="content">
+      (Enter the OTP below in case if we fail to detect the SMS automatically)
+    </ion-col>
+  </ion-row>
+  <ion-row padding>
+    <ion-col col-3 offset-4>
+      <ion-item>
+        <ion-input (model)="otp" placeholder="ENTER OTP"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-1 margin-top="10">
+      <div>00: {{ seconds > 10 ? seconds : '0' + seconds }} </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 offset-4>
+      <button ion-button full color="mv-btn" (click)="submit()">Submit</button>
+    </ion-col>
+    <ion-col col-2>
+      <button ion-button full color="mv-btn" (click)="resend()" [disabled]="!enableResend()">Resend</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -14,3 +14,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.error {
+  color: #ff0000;
+}
+.content-md {
+  background-color: #cfd8dc;
+}
+.mv-button {
+  margin: 10px;
+  color: white;
+}
+
+.ion-input.ng-valid.input-has-value::after{ border-bottom-color: transparent; }
+

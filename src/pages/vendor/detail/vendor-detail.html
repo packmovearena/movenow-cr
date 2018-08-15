@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+    <button class="delete" (click)="confirmDelete()" [disabled]="disableEdit()">
+      <ion-icon md="md-trash"></ion-icon>
+    </button>
+    <button class="edit" (click)="edit = !edit" [disabled]="disableEdit()">
+      <ion-icon name="md-create"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row *ngFor="let input of inputList">
+    <ion-col>
+      <ion-item>
+        <ion-label>{{input.label}}</ion-label>
+        <ion-input [(ngModel)]="vendor[input.ngModel]" [readonly]="!edit" *ngIf="input.type === 'input'" (ngModelChange)="change = true;" [ngClass]="{ blue: edit && !required(input) , red : required(input) }" type="{{input.dataType}}"></ion-input>
+        <ion-textarea [(ngModel)]="vendor[input.ngModel]" [readonly]="!edit" *ngIf="input.type === 'textarea'" (ngModelChange)="change = true;" [ngClass]="{ blue: edit && !required(input) , red : required(input) }"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col offset-1 col-10>
+      <button color="mv-btn" ion-button full *ngIf="edit" (click)="disableSubmit() || submit()" [disabled]="disableSubmit()">Update Details</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let page of pages" (click)="openPage(page)">
+    <ion-card-header>
+      {{page.title}}
+    </ion-card-header>
+  </ion-card>
+</ion-content>
