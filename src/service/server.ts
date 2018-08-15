@@ -67,7 +67,7 @@ export class Server {
   };
 
   send = function (request, successCallBack, failCallBack) {
-    if (!successCallBack || !failCallBack) {
+    if (typeof successCallBack !== 'function' || typeof failCallBack !== 'function') {
       throw new Error('Success and Fail Callback are required')
     }
     this.post(request).subscribe(successCallBack, failCallBack);

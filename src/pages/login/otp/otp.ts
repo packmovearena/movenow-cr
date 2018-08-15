@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {NavController, NavParams} from "ionic-angular";
-import {Profile, VendorSvc} from "../../../app/import";
+import {Profile} from "../../../app/import";
+import {VendorSvc} from "../../../service/vendor-svc";
 
 @Component({
   selector: 'page-otp',
@@ -20,19 +21,19 @@ export class OtpPage {
     this.startTimer();
   }
 
-  enableResend(): boolean {
+  enableResend = (): boolean => {
     return this.enableResendBtn;
-  }
+  };
 
-  resend(): void {
+  resend = (): void => {
     this.vendorSvc.signIn({ mobileNumber: this.mobileNumber }, this.resendSuccess);
-  }
+  };
 
-  resendSuccess(data): void {
+  resendSuccess = (data): void => {
     this.startTimer();
-  }
+  };
 
-  startTimer(): void {
+  startTimer = (): void => {
     this.enableResendBtn = false;
     this.timer = setInterval(()=> {
       if (this.seconds === 1) {
@@ -41,17 +42,17 @@ export class OtpPage {
       }
       this.seconds--;
     }, 1000);
-  }
+  };
 
-  submit(): void {
+  submit = (): void => {
+    this.vendorSvc.submitOTP({ mobileNumber: this.mobileNumber, otp: this.otp}, this.submitSuccess);
+  };
 
-  }
-
-  submitSuccess(data): void {
+  submitSuccess = (data): void => {
     if (data && data.success) {
       this.navCtrl.push(Profile, this.mobileNumber);
     } else {
       //TODO:: handle this
     }
-  }
+  };
 }

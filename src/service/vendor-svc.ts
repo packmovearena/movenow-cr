@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Server, UtilSvc} from "../app/import";
-
+import {Server} from "./server";
+import {UtilSvc} from "./util-svc";
 
 @Injectable()
 export class VendorSvc {
@@ -9,15 +9,27 @@ export class VendorSvc {
 
   }
 
-  failure(error): void {
-    console.log(JSON.stringify(error));
-  }
+  public call = (request, successCallBack, failureCallBack) => {
+    this.server.send(request, successCallBack, failureCallBack);
+  };
 
-  signIn(data, successCallBack): void {
+  public failure = (error): void => {
+    console.log(JSON.stringify(error));
+  };
+
+  public signIn = (data, successCallBack): void => {
     let request = {
       url: this.utilSvc.endPoints.vendor.login ,
       data: data
     };
-    this.server.send(request, successCallBack, this.failure);
-  }
+    this.call(request, successCallBack, this.failure);
+  };
+
+  public submitOTP = (data, successCallBack): void => {
+    let request = {
+      url: this.utilSvc.endPoints.vendor.submitOTP ,
+      data: data
+    };
+    this.call(request, successCallBack, this.failure);
+  };
 }

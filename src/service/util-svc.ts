@@ -12,6 +12,7 @@ export class UtilSvc {
     public endPoints: any = {
       vendor: {
         login: this.urlConstant + "vendor/login",
+        submitOTP: this.urlConstant + "vendor/submitOTP"
       }
     };
 

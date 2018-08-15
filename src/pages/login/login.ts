@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {NavController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import {OtpPage, VendorSvc} from "../../app/import";
+import {OtpPage} from "../../app/import";
+import {VendorSvc} from "../../service/vendor-svc";
 
 @Component({
   selector: 'page-login',
@@ -20,7 +21,7 @@ export class LoginPage {
     this.errorMsg = '';
   };
 
-  signIn = function(): void {
+  signIn = (): void => {
     if (this.validate()) {
         this.errorMsg = 'Invalid Mobile Number';
         return;
@@ -29,7 +30,7 @@ export class LoginPage {
     this.vendorSvc.signIn({ mobileNumber: this.mobileNumber }, this.signInSuccess);
   };
 
-  signInSuccess(data): void {
+  signInSuccess = (data): void => {
     if (data && data.success) {
       this.navCtrl.push(OtpPage, this.mobileNumber);
     } else {
@@ -37,7 +38,7 @@ export class LoginPage {
     }
   };
 
-  validate = function (): boolean {
+  validate = (): boolean => {
     let error = isNaN(this.mobileNumber);
     this.errorMsg = '';
     if (error) {
